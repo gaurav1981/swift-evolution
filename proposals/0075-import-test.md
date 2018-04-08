@@ -3,7 +3,7 @@
 * Proposal: [SE-0075](0075-import-test.md)
 * Author: [Erica Sadun](http://github.com/erica)
 * Review Manager: [Chris Lattner](http://github.com/lattner)
-* Status: **Accepted**
+* Status: **Implemented (Swift 4.1)**
 * Decision Notes: [Rationale](https://lists.swift.org/pipermail/swift-evolution-announce/2016-May/000159.html)
 * Bug: [SR-1560](https://bugs.swift.org/browse/SR-1560)
 
@@ -25,11 +25,11 @@ Swift's existing set of build configurations specify platform differences, not m
 
 ```swift
 #if canImport(UIKit)
-   // UIKit-based code
-   #elseif canImport(Cocoa)
-   // OSX code
-   #elseif
-   // Workaround/text, whatever
+    // UIKit-based code
+#elseif canImport(Cocoa)
+    // OSX code
+#elseif
+    // Workaround/text, whatever
 #endif
 ```
 
@@ -38,7 +38,7 @@ Guarding code with operating system tests can be less future-proofed than testin
 ```swift
 // Exclusive os tests are brittle
 #if !os(Linux)
-   // Matches OSX, iOS, watchOS, tvOS, Windows, FreeBSD
+    // Matches OSX, iOS, watchOS, tvOS, Windows, FreeBSD
 #endif
 ```
 
@@ -73,7 +73,7 @@ frameworks at runtime is to do it via Obj-C. Some sort of check like the ones yo
 
 #if canImport(module)
     // provide solution with module APIs
-    #else
+#else
     // provide alternative solution that does not depend on that module
 #endif
 ```

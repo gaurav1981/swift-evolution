@@ -6,7 +6,13 @@
 * Status: **Implemented (Swift 3)**
 * Decision Notes: [Rationale](https://lists.swift.org/pipermail/swift-evolution-announce/2016-July/000231.html)
 
-For quick reference, jump to:
+For detailed instructions on how to migrate your code to this new
+Swift 3 API refer to the
+[UnsafeRawPointer Migration Guide](https://swift.org/migration-guide-swift3/se-0107-migrate.html). See
+also: See `bindMemory(to:capacity:)`, `assumingMemoryBound(to:)`, and
+`withMemoryRebound(to:capacity:)`.
+
+For quick reference on the full API, jump to:
 - [Full UnsafeRawPointer API](#full-unsaferawpointer-api)
 
 Contents:
@@ -732,7 +738,7 @@ func stringFromBytes(size: Int, value: UInt8) {
   bytes.initialize(to: value, count: size)
   bytes[size] = 0
 
-  // Unsafe pointer conversion is requred to invoke readCString.
+  // Unsafe pointer conversion is required to invoke readCString.
   // If readCString is inlineable and compiled with strict aliasing,
   // then it could read uninitialized memory.
   readCStr(UnsafePointer(bytes))

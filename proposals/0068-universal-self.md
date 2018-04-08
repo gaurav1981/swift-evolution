@@ -24,7 +24,7 @@ a static member or passing types for unsafe bitcasts, among other uses.
 You can either specify a type by its full name or use `self.dynamicType`
 to access an instance's dynamic runtime type as a value. 
 
-```
+```swift
 struct MyStruct {
     static func staticMethod() { ... }
     func instanceMethod() {
@@ -54,7 +54,7 @@ You will continue to specify full type names for any other use. Joe Groff writes
 
 Not at this time
 
-## Acknowlegements
+## Acknowledgements
 
 Thanks Sean Heber, Kevin Ballard, Joe Groff, Timothy Wood, Brent Royal-Gordon, Andrey Tarantsov, Austin Zheng
 
